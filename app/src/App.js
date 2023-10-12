@@ -2,17 +2,17 @@ const initialItems = [
   {
     id: 1,
     description: "Passport",
-    quantity: 12,
+    quantity: 3,
     packed: false,
   },
   {
     id: 1,
     description: "Socks",
-    quantity: 12,
+    quantity: 5,
     packed: false,
   },
-
 ];
+
 function App() {
   return (
     <div className="App">
@@ -42,12 +42,26 @@ function Form() {
 
 function PackagingList() {
   return (
-    <div className="flex items-center justify-center font-[nunito] bg-[#f0f3f4] h-[60svh] text-sm">
-      LIST
+    <div>
+      <ul
+        className="flex space-x-10 py
+      -[1rem] px-[10%] font-[nunito] bg-[#f0f3f4] h-[60svh] text-sm"
+      >
+        {initialItems.map((item) => (
+          <Item item={item} />
+        ))}
+      </ul>
     </div>
   );
 }
 
+function Item({ item }) {
+  return (
+    <li>
+      {item.quantity} {item.description} <button>❌</button>
+    </li>
+  );
+}
 function Stats() {
   return (
     <div className="flex items-center justify-center font-[nunito] bg-[#363535] text-white h-[10svh]">
